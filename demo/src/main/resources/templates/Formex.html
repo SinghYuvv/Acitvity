@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>LogIn</title>
+<style>
+        #dot {
+            height: 25px;
+            width: 25px;
+            background-color: rgb(76,183,168);
+            border-radius: 50%;
+            display: inline-block;
+            margin-left: 150px;
+          }
+          #triangle-up {
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-bottom: 30px solid rgb(76,183,168);
+          }
+          #triangle-bottomleft {
+            width: 0;
+            height:0;
+            border-bottom: 110px solid rgb(76,183,168);
+            border-right: 110px solid transparent;
+            margin-top: 15px;
+            margin-left: -3px;
+          }
+          .row{
+              margin-top: 80px;
+              margin-left: 150px;
+              width: 65%;
+              background-color: rgb(58,175,159);
+          }
+           .col{
+               width: 250px;
+               height: 420px;
+               border-radius:10px 0px 0px 10px ;
+           }  
+           h3{
+            color: white;
+           margin-left: 30px;
+            margin-top: 25px;
+           }          
+           span{
+            color: white;
+            text-align: center;
+            font-size: 12px;
+            margin-left: 25px;
+           } 
+           .btn-primary{
+            border-radius: 20px 20px 20px 20px;
+            width: 80px;
+            background-color: rgb(58,175,159);
+            border-color: white;
+            font-size: 12px;
+            margin-left: 35px;
+            font-weight: bold;
+           }
+           .col-md-6{
+            background-color:rgb(238, 236, 236);
+            width: 400px;
+           }
+           form {
+            background-color: rgb(238, 236, 236);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 0 50px;
+            height: 100%;
+            text-align: center;
+            width: 625px;
+        }
+        input {
+            background-color: white;
+            border: none;
+            padding: 12px 15px;
+            margin: 8px 0;
+            width: 100%;
+            max-width: 150%;
+        }
+        .social-container {
+            margin: 20px 0;
+        }
+        
+        .social-container a {
+            border: 1px solid white;
+            border-radius: 50%;
+            display: inline-flex;
+            justify-content: center;
+            background-color: white;
+            align-items: center;
+            margin: 0 5px;
+            height: 40px;
+            width: 40px;
+        }
+        button {
+            border-radius: 20px;
+            border: 1px solid rgb(58,175,159);
+            background-color: rgb(58,175,159);
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 12px 45px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: transform 80ms ease-in;
+        }
+        button:hover{
+            background-color: rgb(58,175,159);
+            border-color: rgb(58,175,159);
+        }
+        body{
+            background-color: rgb(58,175,159); /* For browsers that do not support gradients */
+            background-image: linear-gradient(to right, rgb(58,175,159), white);
+        }
+        nav{
+            background-color: rgb(58,175,159);
+            background-image: linear-gradient(to right, rgb(58,175,159), white);
+          }
+    </style>
+    
+    <script type="text/javascript">
+    function myFunction() {
+      alert("Submit Sucessfully");
+    }
+
+function validation(){
+	var name = document.getElementById('name').value;
+	var college = document.getElementById('collegeid').value;
+	var branch = document.getElementById('branch').value;
+	
+	if(name==""){
+		document.getElementById('na').innerHTML="Please Enter Your Name";
+		return false;
+	}
+	else{
+		if(name.length<4)
+		{
+			document.getElementById('na').innerHTML="Name is too short!!";
+			return false;
+		}
+		else if(name.length>15)
+		{
+			document.getElementById('na').innerHTML="Name is too long!!";
+			return false;
+		}
+	}
+	if(college==""){
+		document.getElementById('col').innerHTML="Please Enter Your College ID";
+		return false;
+	}
+	else{
+		if(college!=="")
+		{
+			if(isNaN(college))
+			{  
+		       document.getElementById("col").innerHTML="Enter Numeric value";  
+			   return false;  
+			}
+			else
+			{  
+				  return true;  
+			 } 
+		}
+	   else if(college.length=3)
+		{
+			return true;
+		}
+		else
+		{
+			document.getElementById('col').innerHTML="Please Enter Your 3 digit College ID";
+			return false;
+		}
+	}
+	if(branch==""){
+		document.getElementById('col').innerHTML="Please Enter Your Branch";
+		return false;
+	}
+}
+
+</script>
+</head>
+<body>
+        <div class="row" style="background-color:rgb(58,175,159)">
+            <div class="col" style="max-width:250px; background-color:rgb(58,175,159)">
+                <p id="triangle-up"></p>
+                <p id="dot"></p>
+                <h3><b>Welcome !</b></h3>
+                <span style="margin-left: 30px;">To keep connected with</span>
+                <span style="margin-left: 35px;">please enter Student details.</span><br><br>
+                <p id="magnifying-glass"></p>
+                <p id="triangle-bottomleft"></p>
+            </div>
+            <div class="col-md-6">
+                <form  method ="post" th:action="@{/save}" th:object="${student}" onsubmit="return validation()">
+                    <h1>Student Details</h1>
+                    <input type="text" class="form-control" placeholder="Name" th:field="*{name}" id="name">
+                    <span id="na" class="text-danger font-weight-bold"></span>
+                   	<input type="text" class="form-control" placeholder="College ID" th:field="*{collegeId}" id="collegeid">
+                   	<span id="col" class="text-danger font-weight-bold"></span>
+                  	<input type="text" class="form-control" placeholder="Branch" th:field="*{branch}" id="branch">
+                  	<span id="bch" class="text-danger font-weight-bold"></span><br><br>
+                   <button class="btn btn-primary" onclick="myfunction">Submit</button>
+                </form>
+            </div>
+    </div>
+</body>
+</html>
