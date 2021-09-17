@@ -10,6 +10,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         .jumbotron{
             width: 88%;
@@ -33,7 +34,6 @@
             background-color: rgb(58,175,159);
             border-color: white;
             font-size: 12px;
-            margin-left: 35px;
             font-weight: bold;
             color:white;
            }
@@ -49,10 +49,10 @@
             <thead>
               <tr>
                 <th scope="col">Id</th>
-                <th scope="col">College ID</th>
                 <th scope="col">Name</th>
                 <th scope="col">Branch</th>
-                <th scope="col"><button class="btn btn-primary"><i class="fas fas-plus"><a href="/new">Add</a></i></button></th>
+                <th scope="col">College ID</th>
+                <th scope="col"><button class="btn btn-primary"><i class="fas fa-user-plus" style="color:black;"><a href="/new" style="color:black;">Add</a></i></button></th>
               </tr>
             </thead>
 
@@ -60,7 +60,12 @@
                 <td th:text="${student.id}" />
                 <td th:text="${student.name}" />
                 <td th:text="${student.branch}" />
-                 <td th:text="${student.collegeId}" />
+                <td th:text="${student.collegeId}" />
+                <td>
+    				<a th:href="@{/edit/{id}(id=${student.id})}"><i class="fas fa-user-edit" style="color:red;"></i></a>
+    				<a th:href="@{/delete/{id}(id=${student.id})}"><i class="fas fa-trash" style="color:blue;"></i></a>
+    		    </td>
+                 
                  </tr>
             
           </table>
